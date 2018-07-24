@@ -1,10 +1,8 @@
 ////////////////////////////////////////////////////////////////////////
 //////////////////Binance подключение 
 function Binance(command,param,pos) {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName("Config");
-  var key = sheet.getRange("D2").getValue();
-  var secret = sheet.getRange("D3").getValue();
+  var key = "api key"
+  var secret = "api secret"
   var api = command ;
   var baseUrl = "https://api.binance.com";
   var timestamp = Number(new Date().getTime()).toFixed(0);

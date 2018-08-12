@@ -104,6 +104,7 @@ function BinanceAllOrders(pair)
 function BinanceAccount()
 {
   var res = Binance("/api/v3/account","",2)
+  Logger.log(res)
   return res;
 }
 //////////////////////////////////////

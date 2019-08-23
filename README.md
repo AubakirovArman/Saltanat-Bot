@@ -48,11 +48,18 @@ Bitmex
 Ссылки используемые в видео 
 
 Ссылка на таблицу >> https://docs.google.com/spreadsheets/d/1B628BL3q3eayN4MBg2w559Q_4P6e5H1MloI2odzQA_8/edit?usp=sharing
+
 Ссылка на скрипт >> https://script.google.com/d/1P7RJc5...wjCdooi0jdSaoSB5LAEt9V1xNjpm/edit?usp=sharing
+
 Ссылка на консоль >> https://console.cloud.google.com
+
 Пользователь для pub sub >> gmail-api-push@system.gserviceaccount.com
+
 tradingview
+
 noreply@tradingview.com
+
 В этой видео инструкции по настройку бота(сервиса)
 https://www.youtube.com/watch?v=dNsUoVEdw48
-демонстрация бота по след ссылке https://www.youtube.com/watch?v=Ii8QT-549OY
+демонстрация бота по след ссылке 
+https://www.youtube.com/watch?v=Ii8QT-549OY

@@ -79,8 +79,9 @@ function BinanceTicker24hrAll()
 ///////////////Последняя цена по паре
 function BinanceTickerPrice(pair)
 {
+  
   var res = Binance("/api/v3/ticker/price","symbol="+pair,1);
-
+  Logger.log(res)
   return res
 }
 /////////////////////////////////////
@@ -88,5 +89,6 @@ function BinanceTickerPrice(pair)
 function BinanceTickerBookTicker(pair)
 {
   var res = Binance("/api/v3/ticker/bookTicker","symbol="+pair,1);
+  Logger.log(res)
   return res
 }

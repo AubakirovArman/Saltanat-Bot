@@ -20,6 +20,7 @@ https://api.exmo.com/v1/ticker/
 function ExmoTicker()
 {
   var res = Exmo("ticker/")
+
   return res;
 }
 /*

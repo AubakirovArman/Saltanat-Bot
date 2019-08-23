@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saltanat Bot ver:0.915</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <!-- Custom Stylesheet -->
+    <link href="https://quixlab.com/demo/ico-dash/ico-dash/dark/assets/plugins/icheck/skins/all.css" rel="stylesheet">
+    <link href="https://quixlab.com/demo/ico-dash/ico-dash/dark/main/css/style.css" rel="stylesheet">
+    <?!= include('modernizr-3.6.0.min'); ?>
+</head>
+
+<body>
+    <div id="preloader">`
+        <div class="loader">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <div id="main-wrapper">
+        <!-- header -->
+        <div class="header">
+            <div class="nav-header">
+                <div class="brand-logo">
+                    <a href="index.html">
+                        <i class="cc BTC"></i>
+                        <span class="brand-title">
+                            Saltanat Bot
+                        </span>
+                    </a>
+                </div>
+
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- #/ header -->
+
+
+    <!-- sidebar -->
+    <div class="nk-sidebar">
+        <div class="nk-nav-scroll">
+
+            <div class="nav-user">
+                <img src="../assets/images/users/1.jpg" alt="" class="rounded-circle">
+                <h5>Аубакиров Арман</h5>
+                <p>Разработчик бота</p>
+                <p>e-mail: armanibadboy@mail.ru</p>
+
+            </div>
+
+            <ul class="nav flex-column nav-pills" id="menu">
+                <li>
+                    <a class="nav-link" role="tab" data-toggle="pill" href="#tab-2">
+
+                        <span class="nav-text">Binance</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" role="tab" data-toggle="tab" href="#tab-1">
+                        <i class="icon-bitmex"></i>
+                        <span class="nav-text">Bitmex</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">
+                        <i class="icon-exmo"></i>
+                        <span class="nav-text">Exmo</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">
+                        <i class="icon-settingsss"></i>
+                        <span class="nav-text">Настройки Бирж</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- #/ nk nav scroll -->
+    </div>
+    <!-- #/ sidebar -->
+
+    <!-- content body -->
+    <div class="content-body btn-page tab-content">
+        <div class="tab-pane active" role="tabpanel" id="tab-1">
+            <div class="row">
+                <div class="col-lg-10 offset-1">
+                    <div class="card">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 offset-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Bitmex</h4>
+                            <div class="form-group">
+                                <label>Выберите валютную пару:</label>
+                                <select class="form-control text-center" id="pairBitmex" onchange="BitmexTradingviewCom();">
+                                    <option>BTCUSDT</option>
+                                    <option>XRPUSDT</option>
+                                </select>
+                            </div>
+                            <div class="general-button text-center">
+                                <button type="button" class="btn btn-rounded btn-dark"
+                                    onclick="EditPairBitmex();">Редактировать</button>
+                                <button type="button" class="btn btn-rounded btn-success"
+                                    onclick="SavePairBitmex();">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-5 offset-1">
+                    <div class="card text-white bg-danger">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Команда для Tradingview</h4>
+                            <div class="basic-form">
+                                <form>
+                                 
+                                    <div class="form-group  row">
+                                        <div class="offset-1 col-sm-10">
+                                            <input type="email" class="form-control" id="BitmexTradingviewComandSell">
+                                        </div>
+                                    </div>
+                            
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 offset-0.5">
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Команда для Tradingview</h4>
+                            <div class="basic-form">
+                                <form>
+                                 
+                                    <div class="form-group  row">
+                                        <div class="offset-1 col-sm-10">
+                                            <input type="email" class="form-control" id="BitmexTradingviewComandBuy">
+                                        </div>
+                                    </div>
+                            
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 offset-1">
+                    <div class="card text-white bg-danger">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Ордер на продажу</h4>
+                            <div class="basic-form">
+                                <form>
+                                    <!-- вид ордера -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-6 col-form-label">Вид ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="TypeOrderBitmexSellSelect"
+                                                onchange="BitmexOrderTypeSell();">
+                                                <option>Лимитный</option>
+                                                <option>Рыночный</option>
+                                                <option>Рыночный стоп</option>
+                                                <option>Лимитный стоп-ордер</option>
+                                                <option>Лимитный с фиксацией прибыли</option>
+                                                <option>Рыночный с фиксацией прибыли</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- //формирование цены для блока покупки -->
+                                    <div class="form-group row" id="BitmexSellPriceType">
+                                        <label class="col-sm-6 col-form-label">Формирование цены ордера Виды</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BitmexSPriceType();"
+                                                id="BitmexSellPriceTypeValue">
+                                                <option>Ручной ввод цены</option>
+                                                <option>По цене покупки Ask</option>
+                                                <option>По цене продажи Bid</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexCustomPriceSell">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод цены ордера</label>
+                                        <div class="col-sm-6"  lang="en-US"> 
+                                            <input type="number" step="0.00000001"   class="form-control" id="BitmexCustomPriceSellValue"
+                                                placeholder="Введите вашу цену для ордера">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexTypeCountSell">
+                                        <label class="col-sm-6 col-form-label">Формирования количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BitmexCountTypeSell();"
+                                                id="BitmexTypeCountSellValue">
+                                                <option>Ручной ввод количество</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexCustomCountSell">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BitmexCustomCountSellValue"
+                                                placeholder="Введите количество для ордера">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row" id="BitmexProcentCountSell">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество в % от
+                                            баланса</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BitmexProcentCountSellValue"
+                                                placeholder="Укажите количество для ордера в % от баланса">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexTakeProfitSell">
+                                        <label class="col-sm-6 col-form-label">Take profit</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BitmexTakeProfitSellValue"
+                                                placeholder="Укажите ваш take profit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexStopLossSell">
+                                        <label class="col-sm-6 col-form-label">Stop loss</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BitmexStopLossSellValue"
+                                                placeholder="Уквжите ваш Stop Loss">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexOrderCloseSellStatus">
+                                        <label class="col-sm-6 col-form-label">Закрыть триггер</label>
+                                        <div class="switch col-sm-6">
+                                            <label>OFF<input type="checkbox" id="BitmexOrderCloseStatus" checked="">
+                                                <span class="lever"></span>ON
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row" id="BitmexOrderCloseTypeSell">
+                                        <label class="col-sm-6 col-form-label">Выберите тип триггера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BitmexCountTypeSell();"
+                                                id="BitmexTypeOrderCloseSellValue">
+                                                <option>Маркировка</option>
+                                                <option>Индекс</option>
+                                                <option>Последняя</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 offset-0.5">
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Ордер на покупку</h4>
+                            <div class="basic-form">
+                                <form>
+                                    <!-- вид ордера -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-6 col-form-label">Вид ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BitmexOrderTypeBuy();"
+                                                id="BitmexOrderTypeBuyValue">
+                                                <option>Лимитный</option>
+                                                <option>Рыночный</option>
+                                                <option>Рыночный стоп</option>
+                                                <option>Лимитный стоп-ордер</option>
+                                                <option>Лимитный с фиксацией прибыли</option>
+                                                <option>Рыночный с фиксацией прибыли</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- //формирование цены для блока покупки -->
+                                    <div class="form-group row" id="BitmexBuyPriceType">
+                                        <label class="col-sm-6 col-form-label">Формирование цены
+                                            ордера Виды</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BitmexBPriceType();"
+                                                id="BitmexBuyPriceTypeValue">
+                                                <option>Ручной ввод цены</option>
+                                                <option>По цене покупки Ask</option>
+                                                <option>По цене продажи Bid</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexCustomPriceBuy">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод цены ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BitmexCustomPriceBuyValue"
+                                                placeholder="Введите вашу цену для ордера">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexTypeCountBuy">
+                                        <label class="col-sm-6 col-form-label">Формирования количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BitmexCountTypeBuy();"
+                                                id="BitmexTypeCountBuyValue">
+                                                <option>Ручной ввод количество</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexCustomCountBuy">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BitmexCustomCountBuyValue"
+                                                placeholder="Введите количество для ордера">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row" id="BitmexProcentCountBuy">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество в % от
+                                            баланса</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BitmexProcentCountBuyValue"
+                                                placeholder="Укажите количество для ордера в % от баланса">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexTakeProfitBuy">
+                                        <label class="col-sm-6 col-form-label">Take profit</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BitmexTakeProfitBuyValue"
+                                                placeholder="Укажите ваш take profit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexStopLossBuy">
+                                        <label class="col-sm-6 col-form-label">Stop loss</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BitmexStopLossBuyValue"
+                                                placeholder="Уквжите ваш Stop Loss">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BitmexOrderCloseCloseBuyStatus">
+                                        <label class="col-sm-6 col-form-label">Закрыть триггер</label>
+                                        <div class="switch col-sm-6">
+                                            <label>OFF<input type="checkbox" id="BitmexOrderCloseStatusBuy" checked="">
+                                                <span class="lever"></span>ON
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row" id="BitmexOrderCloseTypeBuy">
+                                        <label class="col-sm-6 col-form-label">Выберите тип триггера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BitmexCountTypeSell();"
+                                                id="BitmexTypeOrderCloseBuyValue">
+                                                <option>Маркировка</option>
+                                                <option>Индекс</option>
+                                                <option>Последняя</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" role="tabpanel" id="tab-2">
+            <div class="row">
+                <div class="col-lg-10 offset-1">
+                    <div class="card">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 offset-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Binance</h4>
+                            <div class="form-group">
+                                <label>Выберите валютную пару:</label>
+                                <select class="form-control text-center" id="pairBinance" onchange="BinanceTradingviewCom();">
+                                    <option>BTCUSDT</option>
+                                    <option>XRPUSDT</option>
+                                </select>
+                            </div>
+                            <div class="general-button text-center">
+                                <button type="button" class="btn btn-rounded btn-dark"
+                                    onclick="EditPairBinance();">Редактировать</button>
+                                <button type="button" class="btn btn-rounded btn-success"
+                                    onclick="SavePairBinance();">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 offset-1">
+                    <div class="card text-white bg-danger">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Команда для Tradingview</h4>
+                            <div class="basic-form">
+                                <form>
+                                 
+                                    <div class="form-group  row">
+                                        <div class="offset-1 col-sm-10">
+                                            <input type="email" class="form-control" id="BinanceTradingviewComandSell">
+                                        </div>
+                                    </div>
+                            
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 offset-0.5">
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Команда для Tradingview</h4>
+                            <div class="basic-form">
+                                <form>
+                                 
+                                    <div class="form-group  row">
+                                        <div class="offset-1 col-sm-10">
+                                            <input type="email" class="form-control" id="BinanceTradingviewComandBuy">
+                                        </div>
+                                    </div>
+                            
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 offset-1">
+                    <div class="card text-white bg-danger">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Ордер на продажу</h4>
+                            <div class="basic-form">
+                                <form>
+                                    <!-- вид ордера -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-6 col-form-label">Вид ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="TypeOrderBinanceSellSelect"
+                                                onchange="BinanceOrderTypeSell();">
+                                                <option>Лимитный</option>
+                                                <option>Рыночный</option>
+                                                <option>Лимитный стоп-ордер</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- //формирование цены для блока покупки -->
+                                    <div class="form-group row" id="BinanceSellPriceType">
+                                        <label class="col-sm-6 col-form-label">Формирование цены ордера Виды</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BinanceSPriceType();"
+                                                id="BinanceSellPriceTypeValue">
+                                                <option>Ручной ввод цены</option>
+                                                <option>По цене покупки Ask</option>
+                                                <option>По цене продажи Bid</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BinanceCustomPriceSell">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод цены ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BinanceCustomPriceSellValue"
+                                                placeholder="Введите вашу цену для ордера">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BinanceTypeCountSell">
+                                        <label class="col-sm-6 col-form-label">Формирования количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BinanceCountTypeSell();"
+                                                id="BinanceTypeCountSellValue">
+                                                <option>Ручной ввод количество</option>
+                                                <option>Процент от баланса</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BinanceCustomCountSell">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BinanceCustomCountSellValue"
+                                                placeholder="Введите количество для ордера">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row" id="BinanceProcentCountSell">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество в % от
+                                            баланса</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BinanceProcentCountSellValue"
+                                                placeholder="Укажите количество для ордера в % от баланса">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BinanceTakeProfitSell">
+                                        <label class="col-sm-6 col-form-label">Take profit</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BinanceTakeProfitSellValue"
+                                                placeholder="Укажите ваш take profit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BinanceStopLossSell">
+                                        <label class="col-sm-6 col-form-label">Stop loss</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BinanceStopLossSellValue"
+                                                placeholder="Уквжите ваш Stop Loss">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 offset-0.5">
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Ордер на покупку</h4>
+                            <div class="basic-form">
+                                <form>
+                                    <!-- вид ордера -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-6 col-form-label">Вид ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BinanceOrderTypeBuy();"
+                                                id="BinanceOrderTypeBuyValue">
+                                                <option>Лимитный</option>
+                                                <option>Рыночный</option>
+                                                <option>Лимитный стоп-ордер</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- //формирование цены для блока покупки -->
+                                    <div class="form-group row" id="BinanceBuyPriceType">
+                                        <label class="col-sm-6 col-form-label">Формирование цены
+                                            ордера Виды</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BinanceBPriceType();"
+                                                id="BinanceBuyPriceTypeValue">
+                                                <option>Ручной ввод цены</option>
+                                                <option>По цене покупки Ask</option>
+                                                <option>По цене продажи Bid</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BinanceCustomPriceBuy">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод цены ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BinanceCustomPriceBuyValue"
+                                                placeholder="Введите вашу цену для ордера">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BinanceTypeCountBuy">
+                                        <label class="col-sm-6 col-form-label">Формирования количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="BinanceCountTypeBuy();"
+                                                id="BinanceTypeCountBuyValue">
+                                                <option>Ручной ввод количество</option>
+                                                <option>Процент от баланса</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BinanceCustomCountBuy">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BinanceCustomCountBuyValue"
+                                                placeholder="Введите количество для ордера">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row" id="BinanceProcentCountBuy">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество в % от
+                                            баланса</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BinanceProcentCountBuyValue"
+                                                placeholder="Укажите количество для ордера в % от баланса">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BinanceTakeProfitBuy">
+                                        <label class="col-sm-6 col-form-label">Take profit</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BinanceTakeProfitBuyValue"
+                                                placeholder="Укажите ваш take profit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="BinanceStopLossBuy">
+                                        <label class="col-sm-6 col-form-label">Stop loss</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="BinanceStopLossBuyValue"
+                                                placeholder="Уквжите ваш Stop Loss">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" role="tabpanel" id="tab-3">
+            <div class="row">
+                <div class="col-lg-10 offset-1">
+                    <div class="card">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 offset-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Exmo</h4>
+                            <div class="form-group">
+                                <label>Выберите валютную пару:</label>
+                                <select class="form-control text-center" id="pairExmo" onchange="ExmoTradingviewCom();">
+                                    <option>BTCUSDT</option>
+                                    <option>XRPUSDT</option>
+                                </select>
+                            </div>
+                            <div class="general-button text-center">
+                                <button type="button" class="btn btn-rounded btn-dark"
+                                    onclick="EditPairExmo();">Редактировать</button>
+                                <button type="button" class="btn btn-rounded btn-success"
+                                    onclick="SavePairExmo();">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="row">
+                <div class="col-lg-5 offset-1">
+                    <div class="card text-white bg-danger">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Команда для Tradingview</h4>
+                            <div class="basic-form">
+                                <form>
+                                 
+                                    <div class="form-group  row">
+                                        <div class="offset-1 col-sm-10">
+                                            <input type="email" class="form-control" id="ExmoTradingviewComandSell">
+                                        </div>
+                                    </div>
+                            
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 offset-0.5">
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Команда для Tradingview</h4>
+                            <div class="basic-form">
+                                <form>
+                                 
+                                    <div class="form-group  row">
+                                        <div class="offset-1 col-sm-10">
+                                            <input type="email" class="form-control" id="ExmoTradingviewComandBuy">
+                                        </div>
+                                    </div>
+                            
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 offset-1">
+                    <div class="card text-white bg-danger">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Ордер на продажу</h4>
+                            <div class="basic-form">
+                                <form>
+                                    <!-- вид ордера -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-6 col-form-label">Вид ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="TypeOrderExmoSellSelect"
+                                                onchange="ExmoOrderTypeSell();">
+                                                <option>Лимитный</option>
+                                                <option>Рыночный</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- //формирование цены для блока покупки -->
+                                    <div class="form-group row" id="ExmoSellPriceType">
+                                        <label class="col-sm-6 col-form-label">Формирование цены ордера Виды</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="ExmoSPriceType();"
+                                                id="ExmoSellPriceTypeValue">
+                                                <option>Ручной ввод цены</option>
+                                                <option>По цене покупки Ask</option>
+                                                <option>По цене продажи Bid</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="ExmoCustomPriceSell">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод цены ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="ExmoCustomPriceSellValue"
+                                                placeholder="Введите вашу цену для ордера">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="ExmoTypeCountSell">
+                                        <label class="col-sm-6 col-form-label">Формирования количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="ExmoCountTypeSell();"
+                                                id="ExmoTypeCountSellValue">
+                                                <option>Ручной ввод количество</option>
+                                                <option>Процент от баланса</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="ExmoCustomCountSell">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="ExmoCustomCountSellValue"
+                                                placeholder="Введите количество для ордера">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row" id="ExmoProcentCountSell">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество в % от
+                                            баланса</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="ExmoProcentCountSellValue"
+                                                placeholder="Укажите количество для ордера в % от баланса">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="ExmoTakeProfitSell">
+                                        <label class="col-sm-6 col-form-label">Take profit</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="ExmoTakeProfitSellValue"
+                                                placeholder="Укажите ваш take profit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="ExmoStopLossSell">
+                                        <label class="col-sm-6 col-form-label">Stop loss</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="ExmoStopLossSellValue"
+                                                placeholder="Уквжите ваш Stop Loss">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 offset-0.5">
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <h4 class="text-center text-white">Ордер на покупку</h4>
+                            <div class="basic-form">
+                                <form>
+                                    <!-- вид ордера -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-6 col-form-label">Вид ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="ExmoOrderTypeBuy();"
+                                                id="ExmoOrderTypeBuyValue">
+                                                <option>Лимитный</option>
+                                                <option>Рыночный</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- //формирование цены для блока покупки -->
+                                    <div class="form-group row" id="ExmoBuyPriceType">
+                                        <label class="col-sm-6 col-form-label">Формирование цены
+                                            ордера Виды</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="ExmoBPriceType();"
+                                                id="ExmoBuyPriceTypeValue">
+                                                <option>Ручной ввод цены</option>
+                                                <option>По цене покупки Ask</option>
+                                                <option>По цене продажи Bid</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="ExmoCustomPriceBuy">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод цены ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="ExmoCustomPriceBuyValue"
+                                                placeholder="Введите вашу цену для ордера">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="ExmoTypeCountBuy">
+                                        <label class="col-sm-6 col-form-label">Формирования количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" onchange="ExmoCountTypeBuy();"
+                                                id="ExmoTypeCountBuyValue">
+                                                <option>Ручной ввод количество</option>
+                                                <option>Процент от баланса</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="ExmoCustomCountBuy">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество ордера</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="ExmoCustomCountBuyValue"
+                                                placeholder="Введите количество для ордера">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row" id="ExmoProcentCountBuy">
+                                        <label class="col-sm-6 col-form-label">Ручной ввод количество в % от
+                                            баланса</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="ExmoProcentCountBuyValue"
+                                                placeholder="Укажите количество для ордера в % от баланса">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="ExmoTakeProfitBuy">
+                                        <label class="col-sm-6 col-form-label">Take profit</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="ExmoTakeProfitBuyValue"
+                                                placeholder="Укажите ваш take profit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" id="ExmoStopLossBuy">
+                                        <label class="col-sm-6 col-form-label">Stop loss</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" step="0.00000001" class="form-control" id="ExmoStopLossBuyValue"
+                                                placeholder="Уквжите ваш Stop Loss">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" role="tabpanel" id="tab-4">
+            <div class="row">
+                <div class="col-lg-3 offset-1">
+                    <div class="card">
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-lg-3 offset-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Api Binance</h4>
+                            <div class="general-button">
+                                <div class="form-group">
+                                    <input type="text" id="apiBinanceKey" class="form-control input-rounded"
+                                        placeholder="API Key">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="apiBinanceSecret" class="form-control input-rounded"
+                                        placeholder="API Secret">
+                                </div>
+                                <button type="button" class="btn btn-rounded btn-success"
+                                    onclick="SaveApiBinance();">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 offset-0.5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Api Bitmex</h4>
+                            <div class="general-button">
+                                <div class="form-group">
+                                    <input type="text" id="apiBitmexKey" class="form-control input-rounded"
+                                        placeholder="API Key">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="apiBitmexSecret" class="form-control input-rounded"
+                                        placeholder="API Secret">
+                                </div>
+                                <button type="button" class="btn btn-rounded btn-success"
+                                    onclick="SaveApiBitmex();">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-0.5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Api Exmo</h4>
+                            <div class="general-button">
+                                <div class="form-group">
+                                    <input type="text" id="apiExmoKey" class="form-control input-rounded"
+                                        placeholder="API Key">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="apiExmoSecret" class="form-control input-rounded"
+                                        placeholder="API Secret">
+                                </div>
+                                <button type="button" class="btn btn-rounded btn-success"
+                                    onclick="SaveApiExmo();">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 offset-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Telegram Bot</h4>
+                            <div class="general-button">
+                                <div class="form-group">
+                                    <input type="text" id="TelegrammToken" class="form-control input-rounded"
+                                        placeholder="Token Бота Телеграмм">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="TelegrammIdUser" class="form-control input-rounded"
+                                        placeholder="Ваш Id от телеграмма">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="TelegrammWebhook" class="form-control input-rounded"
+                                        placeholder="Ссылка вэб-приложения от гугл">
+                                </div>
+                                <button type="button" class="btn btn-rounded btn-success"
+                                    onclick="SaveApiTele();">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-0.5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Уникальный идентификатор</h4>
+                            <div class="general-button">
+                                <div class="form-group">
+                                    <input type="text" id="idUser" class="form-control input-rounded"
+                                        placeholder="ID User">
+                                </div>
+                                <button type="button" class="btn btn-rounded btn-success"
+                                    onclick="SaveIDUser();">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+
+    <!-- #/ content body -->
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="copyright">
+            <p>Saltanat Bot &copy;
+                <a href="#"></a> 2019</p>
+        </div>
+    </div>
+    <!-- #/ footer -->
+
+
+    <!-- Common JS -->
+    <script type="text/javascript">
+        function SaveApiBinance() {
+            var res = []
+            res[0] = apiBinanceKey.value
+            res[1] = apiBinanceSecret.value
+        
+            google.script.run.withSuccessHandler(SaveApiBitmexDone1).BinanceSaveApi(res)
+        }
+        function SaveApiBitmex() {
+            var res = []
+            res[0] = apiBitmexKey.value
+            res[1] = apiBitmexSecret.value
+            google.script.run.withSuccessHandler(SaveApiBitmexDone1).BitmexSaveApi(res)
+        }
+        function SaveApiExmo() {
+            var res = []
+            res[0] = apiExmoKey.value
+            res[1] = apiExmoSecret.value
+            google.script.run.withSuccessHandler(SaveApiBitmexDone1).ExmoSaveApi(res)
+        }
+        function SaveApiTele() {
+            var res = []
+            res[0] = TelegrammToken.value
+            res[1] = TelegrammIdUser.value
+            res[2] = TelegrammWebhook.value
+            google.script.run.withSuccessHandler(SaveApiBitmexDone1).TeleSaveApi(res)
+        }
+        function SaveIDUser() {
+            var res = []
+            res[0] = idUser.value
+            google.script.run.withSuccessHandler(SaveApiBitmexDone1).iDSaveApi(res)
+            ExmoTradingviewCom()
+            BinanceTradingviewCom()
+            BitmexTradingviewCom()
+        }
+
+        function SavePairBitmex() {
+            var res = [[10], [10]]
+
+            res[1][1] = TypeOrderBitmexSellSelect.value
+            res[1][2] = BitmexSellPriceTypeValue.value
+            res[1][3] = BitmexCustomPriceSellValue.value
+            res[1][4] = BitmexTypeCountSellValue.value
+            res[1][5] = BitmexCustomCountSellValue.value
+            res[1][6] = BitmexProcentCountSellValue.value
+            res[1][7] = BitmexStopLossSellValue.value
+            res[1][8] = BitmexTakeProfitSellValue.value
+            res[1][9] = BitmexOrderCloseStatus.checked
+            res[1][10] = BitmexTypeOrderCloseSellValue.value
+            
+
+
+            //////////
+            res[0][1] = BitmexOrderTypeBuyValue.value
+            res[0][2] = BitmexBuyPriceTypeValue.value
+            res[0][3] = BitmexCustomPriceBuyValue.value
+            res[0][4] = BitmexTypeCountBuyValue.value
+            res[0][5] = BitmexCustomCountBuyValue.value
+            res[0][6] = BitmexProcentCountBuyValue.value
+            res[0][7] = BitmexStopLossBuyValue.value
+            res[0][8] = BitmexTakeProfitBuyValue.value
+            res[0][9] = BitmexOrderCloseStatusBuy.checked
+            res[0][10] = BitmexTypeOrderCloseBuyValue.value
+          
+            var pair = pairBitmex.value
+            google.script.run.withSuccessHandler(SavePairBitmexDone).saveBitmexPair1(res, pair)
+
+
+        }
+        function SaveApiBitmexDone1(res) {
+            Swal.fire(
+                'Данные сохранены!',
+                '',
+                'success'
+            )
+        }
+
+        function SavePairBitmexDone(res) {
+            Swal.fire(
+                'Данные Ордеров Сохранены!',
+                '',
+                'success'
+            )
+        }
+
+        function SavePairBinance() {
+            var res = [[10], [10]]
+
+            res[1][1] = TypeOrderBinanceSellSelect.value
+            res[1][2] = BinanceSellPriceTypeValue.value
+            res[1][3] = BinanceCustomPriceSellValue.value
+            res[1][4] = BinanceTypeCountSellValue.value
+            res[1][5] = BinanceCustomCountSellValue.value
+            res[1][6] = BinanceProcentCountSellValue.value
+            res[1][7] = BinanceStopLossSellValue.value
+            res[1][8] = BinanceTakeProfitSellValue.value
+            console.log(res[1])
+            //////////
+            res[0][1] = BinanceOrderTypeBuyValue.value
+            res[0][2] = BinanceBuyPriceTypeValue.value
+            res[0][3] = BinanceCustomPriceBuyValue.value
+            res[0][4] = BinanceTypeCountBuyValue.value
+            res[0][5] = BinanceCustomCountBuyValue.value
+            res[0][6] = BinanceProcentCountBuyValue.value
+            res[0][7] = BinanceStopLossBuyValue.value
+            res[0][8] = BinanceTakeProfitBuyValue.value
+            console.log(res[0])
+            var pair = pairBinance.value
+            google.script.run.withSuccessHandler(SavePairBinanceDone).saveBinancePair1(res, pair)
+
+
+        }
+        function SavePairExmo() {
+            var res = [[10], [10]]
+
+            res[1][1] = TypeOrderExmoSellSelect.value
+            res[1][2] = ExmoSellPriceTypeValue.value
+            res[1][3] = ExmoCustomPriceSellValue.value
+            res[1][4] = ExmoTypeCountSellValue.value
+            res[1][5] = ExmoCustomCountSellValue.value
+            res[1][6] = ExmoProcentCountSellValue.value
+            res[1][7] = ExmoStopLossSellValue.value
+            res[1][8] = ExmoTakeProfitSellValue.value
+            console.log(res[1])
+            //////////
+            res[0][1] = ExmoOrderTypeBuyValue.value
+            res[0][2] = ExmoBuyPriceTypeValue.value
+            res[0][3] = ExmoCustomPriceBuyValue.value
+            res[0][4] = ExmoTypeCountBuyValue.value
+            res[0][5] = ExmoCustomCountBuyValue.value
+            res[0][6] = ExmoProcentCountBuyValue.value
+            res[0][7] = ExmoStopLossBuyValue.value
+            res[0][8] = ExmoTakeProfitBuyValue.value
+        
+            var pair = pairExmo.value
+            google.script.run.withSuccessHandler(SavePairExmoDone).saveExmoPair1(res, pair)
+
+
+        }
+        function SavePairBinanceDone(res) {
+            Swal.fire(
+                'Данные Ордеров Сохранены!',
+                '',
+                'success'
+            )
+        }
+        function SavePairExmoDone(res) {
+            Swal.fire(
+                'Данные Ордеров Сохранены!',
+                '',
+                'success'
+            )
+        }
+        function EditPairBinance() {
+            var t = pairBinance.value
+            google.script.run.withSuccessHandler(binancePairCongifLoad).loadPairBinance(t)
+        }
+        function EditPairBitmex() {
+            var t = pairBitmex.value
+
+            google.script.run.withSuccessHandler(bitmexPairCongifLoad).loadPairBitmex(t)
+        }
+        function EditPairExmo() {
+            var t = pairExmo.value
+
+            google.script.run.withSuccessHandler(exmoPairCongifLoad).loadPairExmo(t)
+        }
+
+        function BitmexOrderTypeSell() {
+            BitmexSPriceType()
+            if (TypeOrderBitmexSellSelect.value == "Лимитный") {
+                BitmexTakeProfitSell.hidden = true
+                BitmexStopLossSell.hidden = true
+                BitmexSellPriceType.hidden = false
+                BitmexCustomPriceSell.hidden = false
+                BitmexOrderCloseSellStatus.hidden = true
+                BitmexOrderCloseTypeSell.hidden = true
+
+            }
+            else if (TypeOrderBitmexSellSelect.value == "Рыночный") {
+                BitmexTakeProfitSell.hidden = true
+                BitmexStopLossSell.hidden = true
+                BitmexSellPriceType.hidden = true
+                BitmexCustomPriceSell.hidden = true
+                BitmexOrderCloseSellStatus.hidden = true
+                BitmexOrderCloseTypeSell.hidden = true
+            }
+            else if (TypeOrderBitmexSellSelect.value == "Рыночный стоп") {
+                BitmexTakeProfitSell.hidden = true
+                BitmexStopLossSell.hidden = false
+                BitmexSellPriceType.hidden = true
+                BitmexCustomPriceSell.hidden = true
+                BitmexOrderCloseSellStatus.hidden = false
+                BitmexOrderCloseTypeSell.hidden = false
+            }
+            else if (TypeOrderBitmexSellSelect.value == "Лимитный стоп-ордер") {
+                BitmexTakeProfitSell.hidden = true
+                BitmexStopLossSell.hidden = false
+                BitmexSellPriceType.hidden = false
+                BitmexCustomPriceSell.hidden = false
+                BitmexOrderCloseSellStatus.hidden = false
+                BitmexOrderCloseTypeSell.hidden = false
+            }
+            else if (TypeOrderBitmexSellSelect.value == "Скользящий стоп") { }
+            else if (TypeOrderBitmexSellSelect.value == "Лимитный с фиксацией прибыли") {
+                BitmexTakeProfitSell.hidden = false
+                BitmexStopLossSell.hidden = true
+                BitmexSellPriceType.hidden = false
+                BitmexCustomPriceSell.hidden = false
+                BitmexOrderCloseSellStatus.hidden = false
+                BitmexOrderCloseTypeSell.hidden = false
+            }
+            else if (TypeOrderBitmexSellSelect.value == "Рыночный с фиксацией прибыли") {
+                BitmexTakeProfitSell.hidden = false
+                BitmexStopLossSell.hidden = true
+                BitmexSellPriceType.hidden = true
+                BitmexCustomPriceSell.hidden = true
+                BitmexOrderCloseSellStatus.hidden = false
+                BitmexOrderCloseTypeSell.hidden = false
+            }
+
+        }
+        function BitmexSPriceType() {
+            if (BitmexSellPriceTypeValue.value == "Ручной ввод цены") {
+                BitmexCustomPriceSell.hidden = false
+            }
+            else if (BitmexSellPriceTypeValue.value == "По цене покупки Ask") {
+                BitmexCustomPriceSell.hidden = true
+            }
+            else if (BitmexSellPriceTypeValue.value == "По цене продажи Bid") {
+                BitmexCustomPriceSell.hidden = true
+            }
+        }
+        function BitmexCountTypeSell() {
+            if (BitmexTypeCountSellValue.value == "Ручной ввод количество") {
+                BitmexCustomCountSell.hidden = false
+                BitmexProcentCountSell.hidden = true
+            }
+            else if (BitmexTypeCountSellValue.value == "Процент от баланса") {
+                BitmexCustomCountSell.hidden = true
+                BitmexProcentCountSell.hidden = false
+            }
+        }
+        function BitmexOrderTypeBuy() {
+
+            BitmexBPriceType()
+            if (BitmexOrderTypeBuyValue.value == "Лимитный") {
+                BitmexTakeProfitBuy.hidden = true
+                BitmexStopLossBuy.hidden = true
+                BitmexBuyPriceType.hidden = false
+                BitmexCustomPriceBuy.hidden = false
+                BitmexOrderCloseCloseBuyStatus.hidden = true
+                BitmexOrderCloseTypeBuy.hidden = true
+            }
+            else if (BitmexOrderTypeBuyValue.value == "Рыночный") {
+                BitmexTakeProfitBuy.hidden = true
+                BitmexStopLossBuy.hidden = true
+                BitmexBuyPriceType.hidden = true
+                BitmexCustomPriceBuy.hidden = true
+                BitmexOrderCloseCloseBuyStatus.hidden = true
+                BitmexOrderCloseTypeBuy.hidden = true
+            }
+            else if (BitmexOrderTypeBuyValue.value == "Рыночный стоп") {
+                BitmexTakeProfitBuy.hidden = true
+                BitmexStopLossBuy.hidden = false
+                BitmexBuyPriceType.hidden = true
+                BitmexCustomPriceBuy.hidden = true
+                BitmexOrderCloseCloseBuyStatus.hidden = false
+                BitmexOrderCloseTypeBuy.hidden = false
+            }
+            else if (BitmexOrderTypeBuyValue.value == "Лимитный стоп-ордер") {
+                BitmexTakeProfitBuy.hidden = true
+                BitmexStopLossBuy.hidden = false
+                BitmexBuyPriceType.hidden = false
+                BitmexCustomPriceBuy.hidden = false
+                BitmexOrderCloseCloseBuyStatus.hidden = false
+                BitmexOrderCloseTypeBuy.hidden = false
+            }
+            else if (BitmexOrderTypeBuyValue.value == "Скользящий стоп") { }
+            else if (BitmexOrderTypeBuyValue.value == "Лимитный с фиксацией прибыли") {
+                BitmexTakeProfitBuy.hidden = false
+                BitmexStopLossBuy.hidden = true
+                BitmexBuyPriceType.hidden = false
+                BitmexCustomPriceBuy.hidden = false
+                BitmexOrderCloseCloseBuyStatus.hidden = false
+                BitmexOrderCloseTypeBuy.hidden = false
+            }
+            else if (BitmexOrderTypeBuyValue.value == "Рыночный с фиксацией прибыли") {
+                BitmexTakeProfitBuy.hidden = false
+                BitmexStopLossBuy.hidden = true
+                BitmexBuyPriceType.hidden = true
+                BitmexCustomPriceBuy.hidden = true
+                BitmexOrderCloseCloseBuyStatus.hidden = false
+                BitmexOrderCloseTypeBuy.hidden = false
+            }
+
+        }
+        function BitmexBPriceType() {
+            if (BitmexBuyPriceTypeValue.value == "Ручной ввод цены") {
+                BitmexCustomPriceBuy.hidden = false
+            }
+            else if (BitmexBuyPriceTypeValue.value == "По цене покупки Ask") {
+                BitmexCustomPriceBuy.hidden = true
+            }
+            else if (BitmexBuyPriceTypeValue.value == "По цене продажи Bid") {
+                BitmexCustomPriceBuy.hidden = true
+            }
+        }
+        function BitmexCountTypeBuy() {
+            if (BitmexTypeCountBuyValue.value == "Ручной ввод количество") {
+                BitmexCustomCountBuy.hidden = false
+                BitmexProcentCountBuy.hidden = true
+            }
+            else if (BitmexTypeCountBuyValue.value == "Процент от баланса") {
+                BitmexCustomCountBuy.hidden = true
+                BitmexProcentCountBuy.hidden = false
+            }
+        }
+
+        function BinanceOrderTypeSell() {
+            BinanceSPriceType()
+            if (TypeOrderBinanceSellSelect.value == "Лимитный") {
+                BinanceTakeProfitSell.hidden = true
+                BinanceStopLossSell.hidden = true
+                BinanceSellPriceType.hidden = false
+                BinanceCustomPriceSell.hidden = false
+            }
+            else if (TypeOrderBinanceSellSelect.value == "Рыночный") {
+                BinanceTakeProfitSell.hidden = true
+                BinanceStopLossSell.hidden = true
+                BinanceSellPriceType.hidden = true
+                BinanceCustomPriceSell.hidden = true
+                
+            }
+            else if (TypeOrderBinanceSellSelect.value == "Рыночный стоп") {
+                BinanceTakeProfitSell.hidden = true
+                BinanceStopLossSell.hidden = false
+                BinanceSellPriceType.hidden = true
+                BinanceCustomPriceSell.hidden = true
+            }
+            else if (TypeOrderBinanceSellSelect.value == "Лимитный стоп-ордер") {
+                BinanceTakeProfitSell.hidden = true
+                BinanceStopLossSell.hidden = false
+                BinanceSellPriceType.hidden = false
+                BinanceCustomPriceSell.hidden = false
+            }
+            else if (TypeOrderBinanceSellSelect.value == "Скользящий стоп") { }
+            else if (TypeOrderBinanceSellSelect.value == "Лимитный с фиксацией прибыли") {
+                BinanceTakeProfitSell.hidden = false
+                BinanceStopLossSell.hidden = true
+                BinanceSellPriceType.hidden = false
+                BinanceCustomPriceSell.hidden = false
+            }
+            else if (TypeOrderBinanceSellSelect.value == "Рыночный с фиксацией прибыли") {
+                BinanceTakeProfitSell.hidden = false
+                BinanceStopLossSell.hidden = true
+                BinanceSellPriceType.hidden = true
+                BinanceCustomPriceSell.hidden = true
+            }
+
+        }
+        function BinanceSPriceType() {
+            if (BinanceSellPriceTypeValue.value == "Ручной ввод цены") {
+                BinanceCustomPriceSell.hidden = false
+            }
+            else if (BinanceSellPriceTypeValue.value == "По цене покупки Ask") {
+                BinanceCustomPriceSell.hidden = true
+            }
+            else if (BinanceSellPriceTypeValue.value == "По цене продажи Bid") {
+                BinanceCustomPriceSell.hidden = true
+            }
+        }
+        function BinanceCountTypeSell() {
+            if (BinanceTypeCountSellValue.value == "Ручной ввод количество") {
+                BinanceCustomCountSell.hidden = false
+                BinanceProcentCountSell.hidden = true
+            }
+            else if (BinanceTypeCountSellValue.value == "Процент от баланса") {
+                BinanceCustomCountSell.hidden = true
+                BinanceProcentCountSell.hidden = false
+            }
+        }
+        function BinanceOrderTypeBuy() {
+        BinanceBPriceType()
+            if (BinanceOrderTypeBuyValue.value == "Лимитный") {
+                BinanceTakeProfitBuy.hidden = true
+                BinanceStopLossBuy.hidden = true
+                BinanceBuyPriceType.hidden = false
+                BinanceCustomPriceBuy.hidden = false
+            }
+            else if (BinanceOrderTypeBuyValue.value == "Рыночный") {
+                BinanceTakeProfitBuy.hidden = true
+                BinanceStopLossBuy.hidden = true
+                BinanceBuyPriceType.hidden = true
+                BinanceCustomPriceBuy.hidden = true
+            }
+            else if (BinanceOrderTypeBuyValue.value == "Рыночный стоп") {
+                BinanceTakeProfitBuy.hidden = true
+                BinanceStopLossBuy.hidden = false
+                BinanceBuyPriceType.hidden = true
+                BinanceCustomPriceBuy.hidden = true
+            }
+            else if (BinanceOrderTypeBuyValue.value == "Лимитный стоп-ордер") {
+                BinanceTakeProfitBuy.hidden = true
+                BinanceStopLossBuy.hidden = false
+                BinanceBuyPriceType.hidden = false
+                BinanceCustomPriceBuy.hidden = false
+            }
+            else if (BinanceOrderTypeBuyValue.value == "Скользящий стоп") { }
+            else if (BinanceOrderTypeBuyValue.value == "Лимитный с фиксацией прибыли") {
+                BinanceTakeProfitBuy.hidden = false
+                BinanceStopLossBuy.hidden = true
+                BinanceBuyPriceType.hidden = false
+                BinanceCustomPriceBuy.hidden = false
+            }
+            else if (BinanceOrderTypeBuyValue.value == "Рыночный с фиксацией прибыли") {
+                BinanceTakeProfitBuy.hidden = false
+                BinanceStopLossBuy.hidden = true
+                BinanceBuyPriceType.hidden = true
+                BinanceCustomPriceBuy.hidden = true
+            }
+
+           
+        }
+        function BinanceBPriceType() {
+            if (BinanceBuyPriceTypeValue.value == "Ручной ввод цены") {
+                BinanceCustomPriceBuy.hidden = false
+            }
+            else if (BinanceBuyPriceTypeValue.value == "По цене покупки Ask") {
+                BinanceCustomPriceBuy.hidden = true
+            }
+            else if (BinanceBuyPriceTypeValue.value == "По цене продажи Bid") {
+                BinanceCustomPriceBuy.hidden = true
+            }
+        }
+        function BinanceCountTypeBuy() {ExmoSPriceType()
+            if (BinanceTypeCountBuyValue.value == "Ручной ввод количество") {
+                BinanceCustomCountBuy.hidden = false
+                BinanceProcentCountBuy.hidden = true
+            }
+            else if (BinanceTypeCountBuyValue.value == "Процент от баланса") {
+                BinanceCustomCountBuy.hidden = true
+                BinanceProcentCountBuy.hidden = false
+            }
+        }
+        function ExmoOrderTypeSell() {
+            if (TypeOrderExmoSellSelect.value == "Лимитный") {
+                ExmoTakeProfitSell.hidden = true
+                ExmoStopLossSell.hidden = true
+                ExmoSellPriceType.hidden = false
+                ExmoCustomPriceSell.hidden = false
+            }
+            else if (TypeOrderExmoSellSelect.value == "Рыночный") {
+                ExmoTakeProfitSell.hidden = true
+                ExmoStopLossSell.hidden = true
+                ExmoSellPriceType.hidden = true
+                ExmoCustomPriceSell.hidden = true
+            }
+            
+
+        }
+        function ExmoSPriceType() {
+            if (ExmoSellPriceTypeValue.value == "Ручной ввод цены") {
+                ExmoCustomPriceSell.hidden = false
+            }
+            else if (ExmoSellPriceTypeValue.value == "По цене покупки Ask") {
+                ExmoCustomPriceSell.hidden = true
+            }
+            else if (ExmoSellPriceTypeValue.value == "По цене продажи Bid") {
+                ExmoCustomPriceSell.hidden = true
+            }
+        }
+        function ExmoCountTypeSell() {
+            if (ExmoTypeCountSellValue.value == "Ручной ввод количество") {
+                ExmoCustomCountSell.hidden = false
+                ExmoProcentCountSell.hidden = true
+            }
+            else if (ExmoTypeCountSellValue.value == "Процент от баланса") {
+                ExmoCustomCountSell.hidden = true
+                ExmoProcentCountSell.hidden = false
+            }
+        }
+        function ExmoOrderTypeBuy() {
+        ExmoBPriceType()
+            if (ExmoOrderTypeBuyValue.value == "Лимитный") {
+                ExmoTakeProfitBuy.hidden = true
+                ExmoStopLossBuy.hidden = true
+                ExmoBuyPriceType.hidden = false
+                ExmoCustomPriceBuy.hidden = false
+            }
+            else if (ExmoOrderTypeBuyValue.value == "Рыночный") {
+                ExmoTakeProfitBuy.hidden = true
+                ExmoStopLossBuy.hidden = true
+                ExmoBuyPriceType.hidden = true
+                ExmoCustomPriceBuy.hidden = true
+            }
+            else if (ExmoOrderTypeBuyValue.value == "Рыночный стоп") {
+                ExmoTakeProfitBuy.hidden = true
+                ExmoStopLossBuy.hidden = false
+                ExmoBuyPriceType.hidden = true
+                ExmoCustomPriceBuy.hidden = true
+            }
+            else if (ExmoOrderTypeBuyValue.value == "Лимитный стоп-ордер") {
+                ExmoTakeProfitBuy.hidden = true
+                ExmoStopLossBuy.hidden = false
+                ExmoBuyPriceType.hidden = false
+                ExmoCustomPriceBuy.hidden = false
+            }
+            else if (ExmoOrderTypeBuyValue.value == "Скользящий стоп") { }
+            else if (ExmoOrderTypeBuyValue.value == "Лимитный с фиксацией прибыли") {
+                ExmoTakeProfitBuy.hidden = false
+                ExmoStopLossBuy.hidden = true
+                ExmoBuyPriceType.hidden = false
+                ExmoCustomPriceBuy.hidden = false
+            }
+            else if (ExmoOrderTypeBuyValue.value == "Рыночный с фиксацией прибыли") {
+                ExmoTakeProfitBuy.hidden = false
+                ExmoStopLossBuy.hidden = true
+                ExmoBuyPriceType.hidden = true
+                ExmoCustomPriceBuy.hidden = true
+            }
+            
+
+        }
+        function ExmoBPriceType() {
+            if (ExmoBuyPriceTypeValue.value == "Ручной ввод цены") {
+                ExmoCustomPriceBuy.hidden = false
+            }
+            else if (ExmoBuyPriceTypeValue.value == "По цене покупки Ask") {
+                ExmoCustomPriceBuy.hidden = true
+            }
+            else if (ExmoBuyPriceTypeValue.value == "По цене продажи Bid") {
+                ExmoCustomPriceBuy.hidden = true
+            }
+        }
+        function ExmoCountTypeBuy() {
+            if (ExmoTypeCountBuyValue.value == "Ручной ввод количество") {
+                ExmoCustomCountBuy.hidden = false
+                ExmoProcentCountBuy.hidden = true
+            }
+            else if (ExmoTypeCountBuyValue.value == "Процент от баланса") {
+                ExmoCustomCountBuy.hidden = true
+                ExmoProcentCountBuy.hidden = false
+            }
+        }
+        function autoLoadApi(res) {
+            apiBinanceKey.value = res[0]
+            apiBinanceSecret.value = res[1]
+            apiBitmexKey.value = res[2]
+            apiBitmexSecret.value = res[3]
+            apiExmoKey.value = res[4]
+            apiExmoSecret.value = res[5]
+            idUser.value = res[6]
+            TelegrammToken.value = res[7]
+            TelegrammIdUser.value = res[8]
+            TelegrammWebhook.value = res[9]
+              ExmoTradingviewCom()
+            BinanceTradingviewCom()
+            BitmexTradingviewCom()
+        }
+        function ExmoTradingviewCom()
+        {
+            ExmoTradingviewComandSell.value="ma=exmo.sell."+pairExmo.value+"."+idUser.value
+            ExmoTradingviewComandBuy.value="ma=exmo.buy."+pairExmo.value+"."+idUser.value
+        }
+        function BinanceTradingviewCom()
+        {
+            BinanceTradingviewComandSell.value="ma=binance.sell."+pairBinance.value+"."+idUser.value
+            BinanceTradingviewComandBuy.value="ma=binance.buy."+pairBinance.value+"."+idUser.value
+        }
+        function BitmexTradingviewCom()
+        {
+            BitmexTradingviewComandSell.value="ma=bitmex.sell."+pairBitmex.value+"."+idUser.value
+            BitmexTradingviewComandBuy.value="ma=bitmex.buy."+pairBitmex.value+"."+idUser.value
+        }
+        document.addEventListener("DOMContentLoaded", ready);
+        /// функция загрузки валют для биржы bitmex
+        function bitmexPairCongifLoad(res) {
+            TypeOrderBitmexSellSelect.value = res[1][1]
+            BitmexSellPriceTypeValue.value = res[1][2]
+            BitmexCustomPriceSellValue.value = res[1][3]
+            BitmexTypeCountSellValue.value = res[1][4]
+            BitmexCustomCountSellValue.value = res[1][5]
+            BitmexProcentCountSellValue.value = res[1][6]
+            BitmexStopLossSellValue.value = res[1][7]
+            BitmexTakeProfitSellValue.value = res[1][8]
+            BitmexOrderCloseStatus.checked = res[1][9]
+            BitmexTypeOrderCloseSellValue.value = res[1][10]
+            //////////
+            BitmexOrderTypeBuyValue.value = res[0][1]
+            BitmexBuyPriceTypeValue.value = res[0][2]
+            BitmexCustomPriceBuyValue.value = res[0][3]
+            BitmexTypeCountBuyValue.value = res[0][4]
+            BitmexCustomCountBuyValue.value = res[0][5]
+            BitmexProcentCountBuyValue.value = res[0][6]
+            BitmexStopLossBuyValue.value = res[0][7]
+            BitmexTakeProfitBuyValue.value = res[0][8]
+            BitmexOrderCloseStatusBuy.checked = res[0][9]
+            BitmexTypeOrderCloseBuyValue.value = res[0][10]
+
+
+
+            BitmexSPriceType()
+            BitmexCountTypeSell()
+
+            BitmexBPriceType()
+            BitmexCountTypeBuy()
+            BitmexOrderTypeSell()
+            BitmexOrderTypeBuy()
+        }
+        ////binance загрузка настроек валютной пары
+        function binancePairCongifLoad(res) {
+            TypeOrderBinanceSellSelect.value = res[1][1]
+            BinanceSellPriceTypeValue.value = res[1][2]
+            BinanceCustomPriceSellValue.value = res[1][3]
+            BinanceTypeCountSellValue.value = res[1][4]
+            BinanceCustomCountSellValue.value = res[1][5]
+            BinanceProcentCountSellValue.value = res[1][6]
+            BinanceStopLossSellValue.value = res[1][7]
+            BinanceTakeProfitSellValue.value = res[1][8]
+            //////////
+            BinanceOrderTypeBuyValue.value = res[0][1]
+            BinanceBuyPriceTypeValue.value = res[0][2]
+            BinanceCustomPriceBuyValue.value = res[0][3]
+            BinanceTypeCountBuyValue.value = res[0][4]
+            BinanceCustomCountBuyValue.value = res[0][5]
+            BinanceProcentCountBuyValue.value = res[0][6]
+            BinanceStopLossBuyValue.value = res[0][7]
+            BinanceTakeProfitBuyValue.value = res[0][8]
+
+            BinanceSPriceType()
+            BinanceCountTypeSell()
+
+            BinanceBPriceType()
+            BinanceCountTypeBuy()
+            BinanceOrderTypeBuy()
+            BinanceOrderTypeSell()
+        }
+        ///
+        function exmoPairCongifLoad(res) {
+
+            TypeOrderExmoSellSelect.value = res[1][1]
+            ExmoSellPriceTypeValue.value = res[1][2]
+            ExmoCustomPriceSellValue.value = res[1][3]
+            ExmoTypeCountSellValue.value = res[1][4]
+            ExmoCustomCountSellValue.value = res[1][5]
+            ExmoProcentCountSellValue.value = res[1][6]
+            ExmoStopLossSellValue.value = res[1][7]
+            ExmoTakeProfitSellValue.value = res[1][8]
+            //////////
+            ExmoOrderTypeBuyValue.value = res[0][1]
+            ExmoBuyPriceTypeValue.value = res[0][2]
+            ExmoCustomPriceBuyValue.value = res[0][3]
+            ExmoTypeCountBuyValue.value = res[0][4]
+            ExmoCustomCountBuyValue.value = res[0][5]
+            ExmoProcentCountBuyValue.value = res[0][6]
+            ExmoStopLossBuyValue.value = res[0][7]
+            ExmoTakeProfitBuyValue.value = res[0][8]
+
+
+            ExmoSPriceType()
+            ExmoCountTypeSell()
+
+            ExmoBPriceType()
+            ExmoCountTypeBuy()
+            ExmoOrderTypeSell()
+            ExmoOrderTypeBuy()
+        }
+        ///
+        function loadPairAllMarket(res) {
+
+            var pair = ""
+            for (var i = 0; i < 5000; i++) {
+                if (res[0][i] != undefined) {
+                    pair = pair + ("<option>" + res[0][i] + "</option>")
+                }
+                else {
+                    i = 5001
+                }
+            }
+            pairBinance.innerHTML = pair
+            var pair = ""
+            for (var i = 0; i < 5000; i++) {
+                if (res[1][i] != undefined) {
+                    pair = pair + "<option>" + res[1][i] + "</option>"
+                }
+                else {
+                    i = 5001
+                }
+            }
+            pairBitmex.innerHTML = pair
+            var pair = ""
+            for (var i = 0; i < 5000; i++) {
+                if (res[2][i] != undefined) {
+                    pair = pair + "<option>" + res[2][i] + "</option>"
+                }
+                else {
+                    i = 5001
+                }
+            }
+            pairExmo.innerHTML = pair
+        }
+        function ready() {
+            // bitmex
+            google.script.run.withSuccessHandler(loadPairAllMarket).downloadPairForIndex();
+            google.script.run.withSuccessHandler(autoLoadApi).loadAPI();
+            BitmexOrderTypeSell()
+            BitmexSPriceType()
+            BitmexCountTypeSell()
+            BitmexOrderTypeBuy()
+            BitmexBPriceType()
+            BitmexCountTypeBuy()
+            BitmexTradingviewCom()
+            // binance
+            BinanceOrderTypeSell()
+            BinanceSPriceType()
+            BinanceCountTypeSell()
+            BinanceOrderTypeBuy()
+            BinanceBPriceType()
+            BinanceCountTypeBuy()
+            BinanceTradingviewCom()
+            // exmo
+            ExmoOrderTypeSell()
+            ExmoSPriceType()
+            ExmoCountTypeSell()
+            ExmoOrderTypeBuy()
+            ExmoBPriceType()
+            ExmoCountTypeBuy()
+            ExmoTradingviewCom()
+        }
+    </script>
+
+
+    <script src="https://quixlab.com/demo/ico-dash/ico-dash/dark//assets/plugins/common/common.min.js"></script>
+    <!-- Custom script -->
+    <?!= include('custom'); ?>
+    <?!= include('sweetAlert'); ?>
+    <script src="https://quixlab.com/demo/ico-dash/ico-dash/dark/assets/plugins/icheck/icheck.min.js"></script>
+    <script src="https://quixlab.com/demo/ico-dash/ico-dash/dark/assets/plugins/icheck/icheck.init.js"></script>
+
+    <div id="output"></div>
+
+</body>
+
+</html>

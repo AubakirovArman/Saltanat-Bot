@@ -13,17 +13,18 @@ function BinanceCreatOrder(pair,side,type,timeInForce,quantity,price,newOrderRes
   }
   else if ((type=="STOP_LOSS")||(type=="TAKE_PROFIT"))
   {
-    param = "symbol="+pair+"&side="+side+"&type="+type+"&quantity="+quantity+"&stopPrice"+stopPrice+"&newOrderRespType="+newOrderRespType;
+    param = "symbol="+pair+"&side="+side+"&type="+type+"&quantity="+quantity+"&stopPrice="+stopPrice+"&newOrderRespType="+newOrderRespType;
   }
   else if ((type=="STOP_LOSS_LIMIT")||(type=="TAKE_PROFIT_LIMIT"))
   {
-    param = "symbol="+pair+"&side="+side+"&type="+type+"&timeInForce="+timeInForce+"&quantity="+quantity+"&price="+price+"&stopPrice"+stopPrice+"&newOrderRespType="+newOrderRespType;  
+    param = "symbol="+pair+"&side="+side+"&type="+type+"&timeInForce="+timeInForce+"&quantity="+quantity+"&price="+price+"&stopPrice="+stopPrice+"&newOrderRespType="+newOrderRespType;  
   }
   else if (type=="LIMIT_MAKER ")
   {
      param = "symbol="+pair+"&side="+side+"&type="+type+"&quantity="+quantity+"&price="+price+"&newOrderRespType="+newOrderRespType; 
   }
-  var res = Binance("/api/v3/order",param,3)
+  var res = Binance("/api/v3/order",param,3);
+   Logger.log(res)
   return res;
 }
 
@@ -52,7 +53,8 @@ function BinanceTestOrder(pair,side,type,timeInForce,quantity,price,newOrderResp
   {
      param = "symbol="+pair+"&side="+side+"&type="+type+"&quantity="+quantity+"&price="+price+"&newOrderRespType="+newOrderRespType; 
   }
-  var res = Binance("/api/v3/order/test",param,3)
+  var res = Binance("/api/v3/order/test",param,3);
+  Logger.log(res)
   return res;
 }
 /////////////////////////////////
@@ -103,7 +105,7 @@ function BinanceAllOrders(pair)
 ////////Инфо об Аккаунте
 function BinanceAccount()
 {
-  var res = Binance("/api/v3/account","",2)
+  var res = Binance("/api/v3/account","",2);
   Logger.log(res)
   return res;
 }

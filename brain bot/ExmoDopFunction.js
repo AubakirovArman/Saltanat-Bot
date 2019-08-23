@@ -82,12 +82,17 @@ function priceAvg(pair)
   return result;
 }
 
-
+function asd()
+{
+var res =balanceExmoBot("DOGE_USD")
+Logger.log(res)
+}
 ////////////////////////////////
 /////////////// проверка баланса валюты 
 function balanceExmoBot(pair) 
 {
-  var balance = Exmo("user_info");
+  var balance = Exmo("user_info","",1);
+  Logger.log(balance)
   var fPair= pair.substring(0,pair.indexOf("_"))
   var tPair = pair.substring(pair.indexOf("_")+1,pair.length)
   var fPairBalance = balance['balances'][fPair]
@@ -157,6 +162,19 @@ function ExmoPing()
   }
   return result;
 }
+
+
+
+//////////////////////////////////////
+//////////////////
+function expe()
+{
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName("setting");
+  var b = [];
+  b = sheet.getRange("B4").getDataValidation().getCriteriaValues()
+  Logger.log(b[0][0])
+}
 //////////////////////////////
 ///// обновление валют 
 function ExmoUpdatePair()
@@ -167,6 +185,7 @@ function ExmoUpdatePair()
   var ExmoBotsss = ss.getSheetByName("ExmoBots");
   var a = ExmoCurrency();
   var b = ExmoTicker(); 
+  var c= ExmoPairSettings();
   var countA = 0;
   var countB = 0;
   var pair;
@@ -192,6 +211,14 @@ function ExmoUpdatePair()
       {
         listPair[countB]=pair;
         countB++;
+        sheet.getRange("G"+((countB*1)+2)).setValue(pair);
+        sheet.getRange("H"+((countB*1)+2)).setValue(c[pair].min_quantity);
+        sheet.getRange("I"+((countB*1)+2)).setValue(c[pair].max_quantity);
+        sheet.getRange("J"+((countB*1)+2)).setValue(c[pair].min_price);
+        sheet.getRange("K"+((countB*1)+2)).setValue(c[pair].max_price);
+        sheet.getRange("L"+((countB*1)+2)).setValue(c[pair].max_amount);
+        sheet.getRange("M"+((countB*1)+2)).setValue(c[pair].min_amount);
+        
       }
     }
   }
@@ -201,4 +228,6 @@ function ExmoUpdatePair()
   sheet.getRange("B4").setDataValidation(rule);
   ExmoClient.getRange("D2").setDataValidation(rule);
   ExmoBotsss.getRange("B2").setDataValidation(rule);
+  
+  
 }

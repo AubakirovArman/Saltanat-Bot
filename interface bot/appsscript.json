@@ -1,0 +1,24 @@
+{
+  "timeZone": "Asia/Dhaka",
+  "dependencies": {
+    "enabledAdvancedServices": [{
+      "userSymbol": "Gmail",
+      "serviceId": "gmail",
+      "version": "v1"
+    }]
+  },
+  "webapp": {
+    "access": "MYSELF",
+    "executeAs": "USER_DEPLOYING"
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "sheets": {
+    "macros": [{
+      "menuName": "myFunction",
+      "functionName": "myFunction"
+    }, {
+      "menuName": "Exmo",
+      "functionName": "Exmo"
+    }]
+  }
+}

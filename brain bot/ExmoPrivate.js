@@ -5,7 +5,8 @@
 */
 function ExmoUserInfo()
 {
-  var res = Exmo("user_info");
+  var res = Exmo("user_info/","",1);
+  Logger.log(res)
   return res;
 }
 /*
@@ -27,15 +28,19 @@ market_sell - ордер на продажу по рынку
 market_buy_total - ордер на покупку по рынку на определенную сумму
 market_sell_total - ордер на продажу по рынку на определенную сумму
 */
-function ExmoOrderCreat(pair,count,price,type) {
-
-    var res=Exmo("order_create/?pair="+pair+"&quantity="+count+"&price="+price+"&type="+type);
+function ExmoOrderCreat(pair,count,price,type,method) {
+  
+  if(method==1)
+  {
+      var res=Exmo("order_create/","&pair="+pair+"&type="+type+"&quantity="+count+"&price="+price,2);
+  }
+  else if (method==2)
+  {
+    var res=Exmo("order_create/","&pair="+pair+"&type="+type+"&quantity="+count+"&price=0",2);
+  }
+//  var res =Exmo("order_create/","&pair=BTC_USD&type=buy&quantity=0.01&price=5000",2)
+  Logger.log(res)
     return res;
-}
-function dsfsd()
-{
-var sa = ExmoOrderCreat("BTC_USD",12,1,"market_sell");
-  Logger.log(sa)
 }
 /*
 Наименование метода:	order_cancel
@@ -44,7 +49,8 @@ var sa = ExmoOrderCreat("BTC_USD",12,1,"market_sell");
 */
 function ExmoOrderCancel(OrderID)
 {
-  var res = Exmo("order_cancel/?order_id="+OrderID);
+ 
+  var res = Exmo("order_cancel/","order_id="+OrderID,2);
   return res;
 }
 /*
@@ -54,7 +60,7 @@ function ExmoOrderCancel(OrderID)
 */
 function ExmoUserOpenOrders()
 {
-  var res = Exmo("user_open_orders");
+  var res = Exmo("user_open_orders","",1);
   Logger.log(res)
   return res;
 }
@@ -70,8 +76,8 @@ limit - кол-во возвращаемых сделок (по умолчани
 */
 function ExmoUserTrades(pair,offset,limit)
 {
-  var res = Exmo("user_trades/?pair="+pair+"&offset="+offset+"&limit="+limit);
-  Logger.log(res)
+  var res = Exmo("user_trades/?pair="+pair+"&offset="+offset+"&limit="+limit,"",1);
+
   return res;
 }
 /*
@@ -84,7 +90,7 @@ limit - кол-во возвращаемых сделок (по умолчани
 */
 function ExmoUserCancelledOrders(offset,limit)
 {
-  var res = Exmo("user_cancelled_orders/?offset="+offset+"&limit="+limit);
+  var res = Exmo("user_cancelled_orders/?offset="+offset+"&limit="+limit,"",1);
   return res;
 }
 /*
@@ -95,7 +101,7 @@ order_id - идентификатор ордера
 */
 function ExmoOrderTrades(OrderID)
 {
-  var res = Exmo("order_trades/?order_id="+OrderID);
+  var res = Exmo("order_trades/?order_id="+OrderID,"",1);
   return res;
 }
 /*
@@ -108,8 +114,7 @@ quantity - кол-во которое необходимо купить
 */
 function ExmoRequiredAmount(pair,quantity)
 {
-var res = Exmo("required_amount/?pair="+pair+"&quantity="+quantity)
-Logger.log(res)
+var res = Exmo("required_amount/?pair="+pair+"&quantity="+quantity,"",1)
 return res;
 }
 /*
@@ -119,8 +124,7 @@ return res;
 */
 function ExmoDepositAddress()
 {
-var res = Exmo("deposit_address")
-Logger.log(res)
+var res = Exmo("deposit_address","",1)
 return res;
 }
 

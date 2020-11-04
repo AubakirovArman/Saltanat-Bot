@@ -19,9 +19,6 @@ class formula{
             this.rowText=''
         }
     }
-
 }
-
-
 ///////////formula
 var formul = new formula();

@@ -16,8 +16,6 @@ class logi{
         }
     }
 }
-
-
 //////log
 var loggi = new logi();
 loggi.statusLog=settingSheet.getRange("B1").getValue();

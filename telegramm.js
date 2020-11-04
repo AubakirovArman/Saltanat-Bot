@@ -32,8 +32,6 @@ class telegram {
     }
   }
 }
-
-
 // /// telegramm оповещение
 var teleg =new telegram();
 teleg.status=settingSheet.getRange("B3").getValue();

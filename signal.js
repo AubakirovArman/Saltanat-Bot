@@ -4,15 +4,13 @@ class signalClass {
         this.status = false;
         this.signalCount = 0;
         this.signalID = 0;
-
     }
     signalStart() {
         let found = 0;
         this.status = false;
         for (let i = 1; i <= this.signalNumber; i++) {
             let signalSheetID = signalSheet.getRange("B" + i).getValue();
-            console.log(signalSheetID)
-            console.log(this.signalID)
+
             if (signalSheetID == this.signalID) {
                 let signalCountSheet = signalSheet.getRange("C" + i).getValue()
                 signalCountSheet++
@@ -41,8 +39,5 @@ class signalClass {
     }
 
 }
-
-
 /////signal
 var signalCommand= new signalClass();
-

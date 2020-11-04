@@ -1,8 +1,7 @@
-
 ///////////////обработка сообщение 
 function obrabotkaMesageClass(mesage) {
-  mesage = mesage.toLowerCase()
-  var t = mesage.split("::")
+  mesage = mesage.toLowerCase();
+  let t = mesage.split("::");
   loggi.countLog = logiSheet.getRange("A1").getValue();
   for (var i = 0; i < t.length; i++) {
     loggi.messageTradingview = t[i];
@@ -20,10 +19,14 @@ function obrabotkaMesageClass(mesage) {
     let rowText = dictCommand['rowtext'];
     if (dictCommand['market'] != undefined) {
       let market = dictCommand['market'];
-
       let marketClass = marketDict[market];
       if (dictCommand['symbol'] != undefined) {
         marketClass.pair = dictCommand['symbol'].toUpperCase();
+        if (marketClass.filterDict[marketClass.pair]!=undefined){
+          marketClass.filterStatus=true;
+        }else{
+          marketClass.filterStatus=false;
+        }
       }
       if (dictCommand['side'] != undefined) {
         marketClass.side = dictCommand['side'].toUpperCase();
@@ -52,7 +55,9 @@ function obrabotkaMesageClass(mesage) {
       if (dictCommand['allclose'] != undefined) { marketClass.allClose = dictCommand['allclose']; }
       let signalCount = dictCommand['signalcount'];
       let signalID = dictCommand['signalid'];
-
+      if (dictCommand['activationprice'] != undefined){
+        marketClass.activationPrice=dictCommand['activationprice'];
+      }
 
 
 
@@ -63,7 +68,7 @@ function obrabotkaMesageClass(mesage) {
         formul.checkFormulaStatus();
         if (formul.status) {
           let res = marketClass.binanceStart();
-          loggi.answerMarket = res;
+          loggi.messageAnswerExchange = res;
           loggi.addLog();
           teleg.answerMarket = res;
           teleg.telegramSendLog();
@@ -79,7 +84,7 @@ function obrabotkaMesageClass(mesage) {
         signalCommand.signalStart();
         if (signalCommand.status) {
           let res = marketClass.binanceStart();
-          loggi.answerMarket = res;
+          loggi.messageAnswerExchange = res;
           loggi.addLog();
           teleg.answerMarket = res;
           teleg.telegramSendLog();
@@ -89,7 +94,7 @@ function obrabotkaMesageClass(mesage) {
 
         let res = marketClass.binanceStart();
 
-        loggi.answerMarket = res;
+        loggi.messageAnswerExchange = res;
         loggi.addLog();
         teleg.answerMarket = res;
         teleg.telegramSendLog();
